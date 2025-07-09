@@ -7,8 +7,20 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Social {
+  github,
+  google,
+  facebook
+}
+
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-} 
+  id           String   @id @default(cuid())
+  email        String?  @unique
+  username     String?  
+  displayName  String?  
+  avatarUrl    String?  
+  provider     String   
+  providerId   String   
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
