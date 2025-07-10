@@ -1,6 +1,6 @@
 import fastify from "fastify";
 
-declare module '@fastify/oauth2' {
+declare module '@fastify/oauth2'{
   export const FACEBOOK_CONFIGURATION: {
     authorizeHost: string;
     authorizePath: string;
