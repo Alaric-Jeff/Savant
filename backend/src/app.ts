@@ -12,7 +12,8 @@ const fastify = Fastify({
 fastify.register(prismaPlugin);
 fastify.register(jwtPlugin);
 fastify.register(compression, {
-    threshold: 1024
+    threshold: 1024,
+    encodings: ['br', 'gzip']
 });
 
 const http_port = process.env.http_port? Number(process.env.http_port) : 3000;
@@ -25,6 +26,7 @@ try{
     }).then(()=> {
         fastify.log.info(`Server is running on server ${http_port}, hosted with: ${host}`);
     });
+    
 }catch(err: unknown){
     if(err instanceof Error){
         fastify.log.error(`Error occured in starting the server, error: ${err.name}, message: ${err.message}, stack: ${err.stack}`);
