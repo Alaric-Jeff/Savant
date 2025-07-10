@@ -26,7 +26,7 @@ try{
     }).then(()=> {
         fastify.log.info(`Server is running on server ${http_port}, hosted with: ${host}`);
     });
-    
+
 }catch(err: unknown){
     if(err instanceof Error){
         fastify.log.error(`Error occured in starting the server, error: ${err.name}, message: ${err.message}, stack: ${err.stack}`);
