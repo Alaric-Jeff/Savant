@@ -2,6 +2,7 @@ import Fastify from "fastify";
 import prismaPlugin from "./plugins/prismaPlugin.js";
 import jwtPlugin from "@plugins/jwtPlugin.js";
 import compression from '@fastify/compress'
+import cookiePlugin from "@plugins/cookiePlugin.js";
 import dotenv from 'dotenv'
 
 dotenv.config()
@@ -11,6 +12,7 @@ const fastify = Fastify({
 
 fastify.register(prismaPlugin);
 fastify.register(jwtPlugin);
+fastify.register(cookiePlugin)
 fastify.register(compression, {
     threshold: 1024,
     encodings: ['br', 'gzip']
