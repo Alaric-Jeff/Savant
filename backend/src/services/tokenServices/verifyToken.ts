@@ -12,7 +12,7 @@ function verifyToken(token: string): JwtPayload{
     }
 
     try{
-        return jwt.verify(token, key) as JwtPayload
+        return jwt.verify(token, key, { algorithms: ['HS256'] }) as JwtPayload
     }catch(err: unknown) {
         if(err instanceof TokenExpiredError){
             throw new Error(`Expired token`)
