@@ -3,6 +3,7 @@ import prismaPlugin from "./plugins/prismaPlugin.js";
 import jwtPlugin from "@plugins/jwtPlugin.js";
 import compression from '@fastify/compress'
 import cookiePlugin from "@plugins/cookiePlugin.js";
+import oath2Plugin from "@plugins/oath2Plugin.js";
 import dotenv from 'dotenv'
 
 dotenv.config()
@@ -10,6 +11,7 @@ const fastify = Fastify({
     logger: true
 })
 
+fastify.register(oath2Plugin);
 fastify.register(prismaPlugin);
 fastify.register(jwtPlugin);
 fastify.register(cookiePlugin)
