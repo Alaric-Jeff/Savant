@@ -24,6 +24,8 @@
   "dependencies": {
     "@fastify/compress": "^8.1.0",
     "@fastify/cookie": "^11.0.2",
+    "@fastify/cors": "^11.0.1",
+    "@fastify/helmet": "^13.0.1",
     "@fastify/oauth2": "^8.1.2",
     "@prisma/client": "^6.11.1",
     "@sinclair/typebox": "^0.34.37",
