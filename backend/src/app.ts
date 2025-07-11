@@ -4,6 +4,7 @@ import jwtPlugin from "@plugins/jwtPlugin.js";
 import compression from '@fastify/compress'
 import cookiePlugin from "@plugins/cookiePlugin.js";
 import oath2Plugin from "@plugins/oath2Plugin.js";
+import helmetPlugin from "@plugins/helmetPlugin.js";
 import dotenv from 'dotenv'
 
 dotenv.config()
@@ -11,10 +12,11 @@ const fastify = Fastify({
     logger: true
 })
 
+fastify.register(helmetPlugin);
 fastify.register(oath2Plugin);
 fastify.register(prismaPlugin);
 fastify.register(jwtPlugin);
-fastify.register(cookiePlugin)
+fastify.register(cookiePlugin);
 fastify.register(compression, {
     threshold: 1024,
     encodings: ['br', 'gzip']
