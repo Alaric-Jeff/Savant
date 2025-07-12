@@ -5,6 +5,7 @@ import compression from '@fastify/compress'
 import cookiePlugin from "@plugins/cookiePlugin.js";
 import oath2Plugin from "@plugins/oath2Plugin.js";
 import helmetPlugin from "@plugins/helmetPlugin.js";
+import rateLimitPlugin from "@plugins/rateLimitPlugin.js";
 import dotenv from 'dotenv'
 
 dotenv.config()
@@ -14,6 +15,7 @@ const fastify = Fastify({
 
 fastify.register(helmetPlugin);
 fastify.register(oath2Plugin);
+fastify.register(rateLimitPlugin);
 fastify.register(prismaPlugin);
 fastify.register(jwtPlugin);
 fastify.register(cookiePlugin);
