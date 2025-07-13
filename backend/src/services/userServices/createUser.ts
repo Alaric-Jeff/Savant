@@ -22,8 +22,13 @@ async function createUser(
         })
 
         return user;
-
     }catch(err: unknown){
+        fastify.log.error(`Error occured in services`);
+        if(err instanceof Error){
+            fastify.log.error(`Error occured in services`);
+        }else{
+            fastify.log.error(`Unknown error occured in services`);
+        }
         throw err;
     }
 }
