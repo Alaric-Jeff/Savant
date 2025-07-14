@@ -18,6 +18,8 @@ async function createUser(
                 username,
                 displayName,
                 avatarUrl
+            }, select: {
+                providerId: true
             }
         })
 

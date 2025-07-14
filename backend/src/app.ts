@@ -6,6 +6,7 @@ import cookiePlugin from "@plugins/cookiePlugin.js";
 import oath2Plugin from "@plugins/oath2Plugin.js";
 import helmetPlugin from "@plugins/helmetPlugin.js";
 import rateLimitPlugin from "@plugins/rateLimitPlugin.js";
+import corsPlugin from "@plugins/corsPlugin.js";
 import dotenv from 'dotenv'
 
 dotenv.config()
@@ -13,6 +14,7 @@ const fastify = Fastify({
     logger: true
 })
 
+fastify.register(corsPlugin)
 fastify.register(helmetPlugin);
 fastify.register(oath2Plugin);
 fastify.register(rateLimitPlugin);
